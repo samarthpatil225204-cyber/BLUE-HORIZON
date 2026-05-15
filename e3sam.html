@@ -1,0 +1,682 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>B L U E ༊ H O R I Z O N - Explore The World</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#f5f9ff;
+      color:#222;
+      overflow-x:hidden;
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      width:100%;
+      padding:20px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(0,0,0,0.5);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+    }
+
+    .logo{
+      color:white;
+      font-size:34px;
+      font-weight:700;
+      letter-spacing:2px;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:25px;
+      font-size:17px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#38bdf8;
+    }
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero-content h1{
+      font-size:75px;
+      margin-bottom:20px;
+      animation:fadeIn 1.5s ease;
+    }
+
+    .hero-content p{
+      font-size:24px;
+      margin-bottom:35px;
+      animation:fadeIn 2s ease;
+    }
+
+    .hero-btn{
+      padding:16px 40px;
+      background:#38bdf8;
+      border:none;
+      border-radius:50px;
+      color:white;
+      font-size:18px;
+      cursor:pointer;
+      transition:0.4s;
+      text-decoration:none;
+      box-shadow:0 10px 25px rgba(56,189,248,0.4);
+    }
+
+    .hero-btn:hover{
+      background:#0284c7;
+      transform:scale(1.05);
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:48px;
+      margin:80px 0 20px;
+      color:#0f172a;
+    }
+
+    .section-subtitle{
+      text-align:center;
+      color:#64748b;
+      margin-bottom:50px;
+      font-size:18px;
+    }
+
+    .destinations{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+      padding:20px 60px 80px;
+    }
+
+    .card{
+      background:white;
+      border-radius:25px;
+      overflow:hidden;
+      box-shadow:0 8px 25px rgba(0,0,0,0.1);
+      transition:0.4s;
+    }
+
+    .card:hover{
+      transform:translateY(-12px);
+      box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    .card img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:25px;
+    }
+
+    .card-content h3{
+      font-size:28px;
+      margin-bottom:10px;
+      color:#0f172a;
+    }
+
+    .card-content p{
+      color:#64748b;
+      margin-bottom:20px;
+      line-height:1.6;
+    }
+
+    .book-btn{
+      display:inline-block;
+      padding:12px 25px;
+      background:#0f172a;
+      color:white;
+      border-radius:30px;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .book-btn:hover{
+      background:#38bdf8;
+    }
+
+    .stats{
+      background:linear-gradient(to right,#0f172a,#1e3a8a);
+      color:white;
+      padding:80px 60px;
+
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:30px;
+      text-align:center;
+    }
+
+    .stat-box{
+      transition:0.4s;
+    }
+
+    .stat-box:hover{
+      transform:scale(1.08);
+    }
+
+    .stat-box h2{
+      font-size:50px;
+      margin-bottom:10px;
+    }
+
+    .stat-box p{
+      font-size:18px;
+      color:#cbd5e1;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+      padding:20px 60px 80px;
+    }
+
+    .service-card{
+      background:white;
+      padding:35px;
+      border-radius:20px;
+      text-align:center;
+      box-shadow:0 8px 25px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .service-card:hover{
+      transform:scale(1.05);
+      background:#0f172a;
+      color:white;
+    }
+
+    .service-card h3{
+      margin:20px 0 15px;
+      color:#0f172a;
+    }
+
+    .service-card:hover h3{
+      color:#38bdf8;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:15px;
+      padding:20px 60px 80px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+      border-radius:20px;
+      transition:0.4s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.03);
+    }
+
+    .newsletter{
+      background:linear-gradient(to right,#38bdf8,#2563eb);
+      color:white;
+      text-align:center;
+      padding:80px 20px;
+    }
+
+    .newsletter h2{
+      font-size:45px;
+      margin-bottom:20px;
+    }
+
+    .newsletter p{
+      margin-bottom:30px;
+      font-size:18px;
+    }
+
+    .newsletter input{
+      padding:15px;
+      width:320px;
+      border:none;
+      border-radius:40px;
+      outline:none;
+      margin-right:10px;
+    }
+
+    .newsletter button{
+      padding:15px 30px;
+      border:none;
+      border-radius:40px;
+      background:#0f172a;
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .newsletter button:hover{
+      background:black;
+    }
+
+    footer{
+      background:#020617;
+      color:white;
+      text-align:center;
+      padding:30px;
+      font-size:16px;
+    }
+
+    @media(max-width:768px){
+
+      header{
+        padding:20px;
+      }
+
+      nav{
+        display:none;
+      }
+
+      .hero-content h1{
+        font-size:45px;
+      }
+
+      .hero-content p{
+        font-size:18px;
+      }
+
+      .newsletter input{
+        width:100%;
+        margin-bottom:15px;
+      }
+
+      .newsletter button{
+        width:100%;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+
+    <div class="logo">TRAVERSAL</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#meals">Meals</a>
+      <a href="#memories">Memories</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </header>
+
+
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>Explore The World With</h1>
+
+      <h1>B L U E ༊ H O R I Z O N</h1>
+
+      <p>Adventure awaits in every corner of the world.</p>
+
+      <a href="#destinations" class="hero-btn">
+        Start Your Journey
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <h2 class="section-title" id="destinations">
+    Top Destinations
+  </h2>
+
+  <p class="section-subtitle">
+    Discover breathtaking places around the globe.
+  </p>
+
+  <section class="destinations">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="card-content">
+        <h3>Paris</h3>
+        <p>Experience the romance and beauty of France.</p>
+        <a href="#" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="card-content">
+        <h3>Tokyo</h3>
+        <p>Explore futuristic city life and Japanese culture.</p>
+        <a href="#" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="dubai.png">
+
+      <div class="card-content">
+        <h3>Dubai</h3>
+        <p>Luxury experiences and iconic skyscrapers await.</p>
+        <a href="#" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="card-content">
+        <h3>Maldives</h3>
+        <p>Relax on crystal-clear beaches and luxury islands.</p>
+        <a href="#" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="card-content">
+        <h3>New York</h3>
+        <p>Feel the energy of the city that never sleeps.</p>
+        <a href="#" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="THAILAND.png">
+
+      <div class="card-content">
+        <h3>Thailand</h3>
+        <p>Discover tropical paradise and cultural beauty.</p>
+        <a href="#" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="stats">
+
+    <div class="stat-box">
+      <h2>150+</h2>
+      <p>Countries Covered</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>25K+</h2>
+      <p>Happy Travelers</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>10 Years</h2>
+      <p>Travel Experience</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>500+</h2>
+      <p>Luxury Tours</p>
+    </div>
+
+  </section>
+
+
+  <h2 class="section-title" id="services">
+    Our Services
+  </h2>
+
+  <p class="section-subtitle">
+    Everything you need for the perfect trip.
+  </p>
+
+  <section class="services">
+
+    <div class="service-card">
+      <h3>Flight Booking</h3>
+      <p>Book affordable flights worldwide.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Hotel Reservations</h3>
+      <p>Stay in premium hotels and resorts.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Tour Packages</h3>
+      <p>Customized travel packages for dream vacations.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Travel Guides</h3>
+      <p>Professional travel guides for unforgettable trips.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Visa Assistance</h3>
+      <p>Professional help with tourist visas.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Luxury Cruises</h3>
+      <p>Enjoy world-class cruise vacations.</p>
+    </div>
+
+  </section>
+
+
+  <h2 class="section-title" id="gallery">
+    Travel Gallery
+  </h2>
+
+  <p class="section-subtitle">
+    Moments captured from around the world.
+  </p>
+
+  <section class="gallery">
+
+    <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="mexico.png">
+
+    <img src="extra.png">
+
+    <img src="pav.png">
+
+
+
+  </section>
+
+
+  <h2 class="section-title" id="meals">
+    Meals Around The World
+  </h2>
+
+  <p class="section-subtitle">
+    Taste the flavors of every destination.
+  </p>
+
+  <section class="destinations">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="card-content">
+        <h3>japaness sushi</h3>
+        <p>Fresh seafood and artistic presentation.</p>
+        <a href="#" class="book-btn">Explore Meals</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="card-content">
+        <h3>italic pizza</h3>
+        <p>Authentic cheesy pizzas from Italy.</p>
+        <a href="#" class="book-btn">Explore Meals</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="card-content">
+        <h3>Indian Thali</h3>
+        <p>A royal combination of delicious Indian dishes.</p>
+        <a href="#" class="book-btn">Explore Meals</a>
+      </div>
+    </div>
+
+  </section>
+
+
+  <h2 class="section-title" id="memories">
+    Travel Memories
+  </h2>
+
+  <p class="section-subtitle">
+    Capture unforgettable moments from every journey.
+  </p>
+
+  <section class="gallery">
+
+    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="water.png">
+
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=1200&auto=format&fit=crop">
+
+  </section>
+
+
+  <section class="stats">
+
+    <div class="stat-box">
+      <h2>4.9★</h2>
+      <p>Customer Ratings</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>120+</h2>
+      <p>Luxury Resorts</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>80+</h2>
+      <p>Adventure Activities</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>24/7</h2>
+      <p>Travel Support</p>
+    </div>
+
+  </section>
+
+
+  <section class="newsletter" id="contact">
+
+    <h2>Get Travel Updates</h2>
+
+    <p>
+      Subscribe and receive the latest travel deals and offers.
+    </p>
+
+    <input type="email" placeholder="Enter your email">
+
+    <button>Subscribe</button>
+
+  </section>
+
+
+  <footer>
+
+    <p>
+      © 2026 TRAVERSAL | Explore Beyond Boundaries
+    </p>
+
+  </footer>
+
+</body>
+</html>
